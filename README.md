@@ -1,6 +1,6 @@
 # ansible-hosts
 
-[![Ansible Role](https://img.shields.io/ansible/role/ansible-**role_id**.svg)](https://galaxy.ansible.com/detail#/role/**role_id**)
+[![Ansible Role](https://img.shields.io/ansible/role/ansible-6104.svg)](https://galaxy.ansible.com/detail#/role/6104)
 [![Build Status](https://travis-ci.org/shrikeh-ansible-roles/ansible-hosts.svg)](https://travis-ci.org/shrikeh-ansible-roles/ansible-hosts)
 [![GitHub Stars](https://img.shields.io/github/stars/shrikeh-ansible-roles/ansible-hosts.svg)](https://github.com/shrikeh-ansible-roles/ansible-hosts)
 
