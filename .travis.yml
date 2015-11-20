@@ -26,5 +26,5 @@ install:
 script:
   - ansible-playbook --version
   - ansible-playbook --syntax-check -i test/inventory test/playbook.yml
-  - ansible-playbook –-become -i test/inventory test/playbook.yml --connection=local  -vvvv
+  - ansible-playbook  -i test/inventory test/playbook.yml --connection=local --become -vvvv
 ...
