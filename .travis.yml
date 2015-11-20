@@ -22,8 +22,8 @@ env:
     - TEST_ANSIBLE_HOSTNAME: localhost
       TEST_ANSIBLE_CONNECTION: local
   matrix:
-    - env: PIP_ANSIBLE_VERSION='>=1.9,<2.0'
-    - env: PIP_ANSIBLE_VERSION='>=2.0'
+    - PIP_ANSIBLE_VERSION: '>=1.9,<2.0'
+    - PIP_ANSIBLE_VERSION: '>=2.0'
 
 install:
     - pip install --upgrade pip
