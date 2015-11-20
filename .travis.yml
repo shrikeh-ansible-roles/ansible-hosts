@@ -15,7 +15,6 @@ addons:
 matrix:
   include:
     - env: PIP_ANSIBLE_VERSION='>=1.9,<2.0'
-    - env: PIP_ANSIBLE_VERSION='>=2.0'
   allow_failures:
     - env: PIP_ANSIBLE_VERSION='>=2.0'
   fast_finish: true
