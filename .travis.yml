@@ -7,14 +7,14 @@ addons:
     sources:
       - python-apt
       - python-pycurl
+
 matrix:
-  fast_finish: true
   include:
     - env: PIP_ANSIBLE_VERSION='>=1.9,<2.0'
     - env: PIP_ANSIBLE_VERSION='>=2.0'
   allow_failures:
     - env: PIP_ANSIBLE_VERSION='>=2.0'
-
+  fast_finish: true
 env:
   global:
     - TEST_ANSIBLE_HOSTNAME: localhost
@@ -22,8 +22,9 @@ env:
 
 install:
     - pip install --upgrade pip
-    - pip install -q "ansible $PIP_ANSIBLE_VERSION"
+    - pip install "ansible $PIP_ANSIBLE_VERSION"
 script:
+  - ansible-playbook --version
   - ansible-playbook --syntax-check -i test/inventory test/playbook.yml
   - ansible-playbook –-become -i test/inventory test/playbook.yml --connection=local  -vvvv
 ...
