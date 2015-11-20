@@ -56,7 +56,13 @@ None.
         hosts_file_path: '/etc/foo'
         hosts_file_owner: 'root'
         hosts_file_group: 'devs'
-
+        hosts_entries_local_loopback_ipv4_hostnames:
+          - pugh
+          - hugh # yes I know it's actually pugh again, but....
+          - barney_mcgrew
+          - cuthbert
+          - dibble
+          - grup
       roles:
          - { role: shrikeh.hosts }
 ...

@@ -12,11 +12,13 @@
 - hosts: test
   gather_facts: "{{ lookup('env','TEST_GATHER_FACTS') }}"
   vars:
-    hosts_entries:
-      - ip: 127.0.0.2
-        hostnames:
-          - 'wibble'
-          - 'bibble'
+    hosts_entries_local_loopback_ipv4_hostnames:
+      - pugh
+      - pugh # yes I know it's actually pugh again, but....
+      - barney_mcgrew
+      - cuthbert
+      - dibble
+      - grup
   roles:
     - { role: '../../' }
 ...

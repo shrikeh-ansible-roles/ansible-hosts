@@ -3,7 +3,7 @@
 {% if host.comment is defined %}
 # {{ host.comment }}
 {% endif %}
-{{ host.ip }} {{ host.hostnames | join(' ') }}
+{{ host.ip }} {{ host.hostnames | unique | join(' ') }}
 {% endmacro %}
 
 {% for group in hosts_groups %}

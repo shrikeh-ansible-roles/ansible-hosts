@@ -36,5 +36,4 @@ host_entries_localhost:
 hosts_groups:
   - entries: "{{ host_entries_localhost }}"
     comment: "local loopback"
-
 ...
