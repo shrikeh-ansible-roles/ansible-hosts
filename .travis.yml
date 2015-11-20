@@ -27,5 +27,5 @@ script:
   - ansible-playbook --version
   - export TEST_HOSTS_FILE=`mktemp /tmp/config.XXXXXXXXXX`
   - ansible-playbook --syntax-check -i test/inventory test/playbook.yml
-  - ansible-playbook  -i test/inventory test/playbook.yml --connection=local --become -vvvv
+  - ansible-playbook  -i test/inventory -l travis test/playbook.yml --connection=local --become -vvvv
 ...
