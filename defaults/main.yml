@@ -3,9 +3,6 @@
 hosts_file_directory: '/etc'
 hosts_file_name: 'hosts'
 hosts_file_path: "{{ hosts_file_directory }}/{{ hosts_file_name }}"
-hosts_file_owner: 'root'
-hosts_file_group: 'root'
-hosts_file_mode: '0644'
 hosts_file_backup: yes
 
 hosts_file_template: 'hosts.j2'

@@ -6,8 +6,8 @@
     dest: "{{ hosts_file_path }}"
     src: "{{ hosts_file_template }}"
     backup: "{{ hosts_file_backup }}"
-    owner: "{{ hosts_file_owner }}"
-    group: "{{ hosts_file_group }}"
-    mode: "{{ hosts_file_mode }}"
+    owner: "{{ hosts_file_owner | default(omit) }}"
+    group: "{{ hosts_file_group | default(omit) }}"
+    mode: "{{ hosts_file_mode | default(omit) }}"
 
 ...
