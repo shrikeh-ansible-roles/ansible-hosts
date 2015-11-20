@@ -13,9 +13,17 @@ None.
 
 ## Role Variables
 --------------
-#### [`hosts_pkg_install_latest`][hosts_pkg_install_latest]
-Default: `no`
-Controls whether to use 'present' or 'latest' for package installation.
+#### [`hosts_file_path`][hosts_file_path]
+Default: `/etc/hosts`
+The path to the host file to update.
+
+#### [`hosts_file_owner`][hosts_file_group]
+Default: `root`
+User ownership of `hosts_file_path`.
+
+#### [`hosts_file_group`][hosts_file_group]
+Default: `root`
+Group ownership of `hosts_file_path`.
 
 ## Dependencies
 ------------
@@ -42,6 +50,8 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 ------------------
 Contact me on Twitter @[barney_hanlon][twitter]
 
-[hosts_pkg_install_latest]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L3 "Link to the variable definition in defaults.yml"
+[hosts_file_path]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L3 "Link to the variable definition in defaults.yml"
+[hosts_file_owner]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L4
+[hosts_file_group]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L5
 [licence]: https://raw.githubusercontent.com/shrikeh-ansible-roles/ansible-hosts/master/LICENSE "Link to the license in the repository"
 [twitter]: https://twitter.com/barney_hanlon "Link to my Twitter page"

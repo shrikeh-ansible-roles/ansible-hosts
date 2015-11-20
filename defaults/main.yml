@@ -8,22 +8,31 @@ hosts_file_backup: yes
 
 hosts_file_template: 'hosts.j2'
 
-host_entries_localhost:
-  - ip: '127.0.0.1'
-    comment: 'IPv4 loopback'
-    hostnames:
-      - localhost
-      - localhost.localdomain
-      - localhost4
-      - localhost4.localdomain4
+hosts_entries_local_loopback_ipv4_hostnames:
+  - localhost
+  - localhost.localdomain
+  - localhost4
+  - localhost4.localdomain4
 
-  - ip: '::1'
-    comment: 'IPv6 loopback'
-    hostnames:
-      - localhost
-      - localhost.localdomain
-      - localhost6.localdomain6
-      - localhost6
+hosts_entries_local_loopback_ipv4:
+  ip: '127.0.0.1'
+  comment: 'IPv4 loopback'
+  hostnames: "{{ hosts_entries_local_loopback_ipv4_hostnames }}"
+
+hosts_entries_local_loopback_ipv6_hostnames:
+  - localhost
+  - localhost.localdomain
+  - localhost6.localdomain6
+  - localhost6
+
+hosts_entries_local_loopback_ipv6:
+  ip: '::1'
+  comment: 'IPv6 loopback'
+  hostnames: "{{ hosts_entries_local_loopback_ipv6_hostnames }}"
+
+host_entries_localhost:
+  - "{{ hosts_entries_local_loopback_ipv4 }}"
+  - "{{ hosts_entries_local_loopback_ipv6 }}"
 
 hosts_groups:
   - entries: "{{ host_entries_localhost }}"
