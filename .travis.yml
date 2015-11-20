@@ -25,6 +25,7 @@ install:
     - pip install "ansible $PIP_ANSIBLE_VERSION"
 script:
   - ansible-playbook --version
+  - export TEST_HOSTS_FILE=`mktemp /tmp/config.XXXXXXXXXX`
   - ansible-playbook --syntax-check -i test/inventory test/playbook.yml
   - ansible-playbook  -i test/inventory test/playbook.yml --connection=local --become -vvvv
 ...
