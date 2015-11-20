@@ -1,7 +1,11 @@
 ---
 language: python
 python: '2.7'
-sudo: required
+sudo: false
+branches:
+  only:
+    - master
+    - stable
 addons:
   apt:
     sources:
@@ -15,6 +19,7 @@ matrix:
   allow_failures:
     - env: PIP_ANSIBLE_VERSION='>=2.0'
   fast_finish: true
+
 env:
   global:
     - TEST_ANSIBLE_HOSTNAME: localhost
@@ -27,5 +32,5 @@ script:
   - ansible-playbook --version
   - export TEST_HOSTS_FILE=`mktemp /tmp/config.XXXXXXXXXX`
   - ansible-playbook --syntax-check -i test/inventory test/playbook.yml
-  - ansible-playbook  -i test/inventory -l local test/playbook.yml --connection=local --become -vvvv
+  - ansible-playbook  -i test/inventory -l local test/playbook.yml --connection=local -vvvv
 ...
