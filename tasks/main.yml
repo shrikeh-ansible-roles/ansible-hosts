@@ -1,0 +1,13 @@
+---
+# tasks file for ansible-hosts
+
+- name: Update hosts file
+  template:
+    dest: "{{ hosts_file_path }}"
+    src: "{{ hosts_file_template }}"
+    backup: "{{ hosts_file_backup }}"
+    owner: "{{ hosts_file_owner }}"
+    group: "{{ hosts_file_group }}"
+    mode: "{{ hosts_file_mode }}"
+
+...

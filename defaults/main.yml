@@ -1,0 +1,32 @@
+---
+# defaults file for ansible-hosts
+hosts_file_path: '/etc/hosts'
+hosts_file_owner: 'root'
+hosts_file_group: 'root'
+hosts_file_mode: '0644'
+hosts_file_backup: yes
+
+hosts_file_template: 'hosts.j2'
+
+host_entries_localhost:
+  - ip: '127.0.0.1'
+    comment: 'IPv4 loopback'
+    hostnames:
+      - localhost
+      - localhost.localdomain
+      - localhost4
+      - localhost4.localdomain4
+
+  - ip: '::1'
+    comment: 'IPv6 loopback'
+    hostnames:
+      - localhost
+      - localhost.localdomain
+      - localhost6.localdomain6
+      - localhost6
+
+hosts_groups:
+  - entries: "{{ host_entries_localhost }}"
+    comment: "local loopback"
+
+...

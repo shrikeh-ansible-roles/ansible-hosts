@@ -1,0 +1,4 @@
+{% if host.comment is defined %}
+# {{ host.comment }}
+{% endif %}
+{{ host.ip }} {{ host.hostnames | join(' ') }}

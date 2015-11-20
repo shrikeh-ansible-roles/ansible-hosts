@@ -1,0 +1,23 @@
+# {{ ansible_managed }}
+{% macro host_entry(host) %}
+{% if host.comment is defined %}
+# {{ host.comment }}
+{% endif %}
+{{ host.ip }} {{ host.hostnames | join(' ') }}
+{% endmacro %}
+
+{% for group in hosts_groups %}
+{% if group.comment is defined %}
+### {{ group.comment }}
+
+{% endif %}
+{% for host in group.entries %}
+{{ host_entry(host) }}
+{% endfor %}
+{% endfor %}
+{# for ungrouped host entries #}
+{% if hosts_entries is defined %}
+{% for host in hosts_entries %}
+{{ host_entry(host) }}
+{% endfor %}
+{% endif %}

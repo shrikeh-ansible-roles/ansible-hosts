@@ -1,0 +1,22 @@
+---
+- hosts: local
+  gather_facts: no
+  tasks:
+    - add_host:
+        groups: test
+        name: "{{ lookup('env','TEST_ANSIBLE_HOSTNAME') }}"
+        ansible_connection: "{{ lookup('env','TEST_ANSIBLE_CONNECTION') }}"
+        ansible_ssh_port: "{{ test_host_ssh_port | default('22') }}"
+        hosts_file_path: "{{ lookup('env','TEST_HOSTS_FILE') }}"
+
+- hosts: test
+  gather_facts: "{{ lookup('env','TEST_GATHER_FACTS') }}"
+  vars:
+    hosts_entries:
+      - ip: 127.0.0.2
+        hostnames:
+          - 'wibble'
+          - 'bibble'
+  roles:
+    - { role: '../../' }
+...
