@@ -13,22 +13,38 @@ None.
 
 ## Role Variables
 --------------
+#### [`hosts_file_directory`][hosts_file_directory]
+Default: `/etc`
+Directory of the hosts file. "Building block" variable, useful in testing.
+
+#### [`hosts_file_name`][hosts_file_name]
+Default: `hosts`
+Name of the hosts file. "Building block" variable used as component of `hosts_file_path`, useful really only in testing.
+
 #### [`hosts_file_path`][hosts_file_path]
-Default: `/etc/hosts`
-The path to the host file to update.
+Default: `{{ hosts_file_directory }}/{{ hosts_file_name }}`
+Full path to the hosts file. Change this rather than `hosts_file_name` or `hosts_file_directory`.
 
-#### [`hosts_file_owner`][hosts_file_group]
-Default: `root`
-User ownership of `hosts_file_path`.
+#### `hosts_file_owner`
+Default: `none`
+User ownership of `hosts_file_path`. Omitted if unpopulated.
 
-#### [`hosts_file_group`][hosts_file_group]
-Default: `root`
-Group ownership of `hosts_file_path`.
+#### `hosts_file_group`
+Default: `none`
+Group ownership of `hosts_file_path`. Omitted if unpopulated.
+
+#### `hosts_file_group`
+Default: `none`
+Group ownership of `hosts_file_path`. Omitted if unpopulated.
+
+#### `hosts_file_mode`
+Default: `none`
+File mode of `hosts_file_path`. Omitted if unpopulated.
 
 ## Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None.
 
 ## Example Playbook
 ----------------
@@ -36,6 +52,11 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 ```YAML
 ---
     - hosts: servers
+      vars:
+        hosts_file_path: '/etc/foo'
+        hosts_file_owner: 'root'
+        hosts_file_group: 'devs'
+
       roles:
          - { role: shrikeh.hosts }
 ...
@@ -50,8 +71,8 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 ------------------
 Contact me on Twitter @[barney_hanlon][twitter]
 
-[hosts_file_path]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L3 "Link to the variable definition in defaults.yml"
-[hosts_file_owner]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L4
-[hosts_file_group]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L5
+[hosts_file_directory]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L3 "Link to the variable definition in defaults.yml"
+[hosts_file_name]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L4
+[hosts_file_path]: https://github.com/shrikeh-ansible-roles/ansible-hosts/blob/master/defaults/main.yml#L5
 [licence]: https://raw.githubusercontent.com/shrikeh-ansible-roles/ansible-hosts/master/LICENSE "Link to the license in the repository"
 [twitter]: https://twitter.com/barney_hanlon "Link to my Twitter page"
