@@ -14,7 +14,7 @@
   vars:
     hosts_entries_local_loopback_ipv4_hostnames:
       - pugh
-      - pugh # yes I know it's actually pugh again, but....
+      - pugh # will be removed as a duplicate
       - barney_mcgrew
       - cuthbert
       - dibble
