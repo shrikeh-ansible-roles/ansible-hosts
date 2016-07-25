@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Barney Hanlon
-  description:
+  description: Create grouped host entries in /etc/hosts
   company: B H Hanlon Ventures Ltd.
   license: MIT
   min_ansible_version: 1.9
